@@ -38,7 +38,7 @@ const tableColumnInfo = [
   },
   {
     className: classNames('pf-m-hidden', 'pf-m-visible-on-lg'),
-    id: 'buckets',
+    id: 'bucketPolicy',
   },
   { className: 'dropdown-kebab-pf pf-c-table__action', id: '' },
 ];
@@ -70,13 +70,13 @@ export const RowRenderer: React.FC<RowProps<NamespaceStoreKind, CustomData>> =
         <TableData {...tableColumnInfo[3]} activeColumnIDs={activeColumnIDs}>
           {bucketsCount ? (
             <MCGResourcePopOver
-              label={t('{{bucketsCount}} Buckets', { bucketsCount })}
+              label={t('{{bucketsCount}} bucket policies', { bucketsCount })}
               resourceList={resourceMap[dataResourceName]}
-              headerContent={t('Connected Buckets')}
+              headerContent={t('Connected bucket policies')}
               resourceDetailsURL={BUCKET_CLASS_DETAILS_PATH}
             />
           ) : (
-            t('{{bucketsCount}} Buckets', { bucketsCount })
+            t('{{bucketsCount}} bucket policy', { bucketsCount })
           )}
         </TableData>
         <TableData {...tableColumnInfo[4]} activeColumnIDs={activeColumnIDs}>
@@ -125,7 +125,7 @@ export const useDataResourceList = () => {
         id: tableColumnInfo[2].id,
       },
       {
-        title: t('Buckets'),
+        title: t('Bucket policy'),
         props: {
           className: tableColumnInfo[3].className,
         },
@@ -181,7 +181,7 @@ export const DataResourceListView: React.FC = () => {
       resourceModel={NooBaaNamespaceStoreModel}
       resourceMap={bucketPolicyMap}
       tableColumns={tableColumns as TableColumn<K8sResourceCommon>[]}
-      createButtonTitle={t('Create data source')}
+      createButtonTitle={t('Create new')}
       kebabActions={(t) => ({
         Delete: {
           value: t('Delete data source'),

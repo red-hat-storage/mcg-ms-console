@@ -89,7 +89,7 @@ export const OBCPopOver: React.FC<OBCPopOverProps> = ({
   return (
     <ResourcePopOver
       label={label}
-      headerContent={headerContent || t('Connected ObjectBucketClaims')}
+      headerContent={headerContent || t('Connected object bucket claims')}
       data-test="obc-resource"
     >
       <div className="resource-pop-over">

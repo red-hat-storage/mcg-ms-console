@@ -53,7 +53,7 @@
         "version": "v1"
       },
       "page": {
-        "name": "Buckets",
+        "name": "Bucket policy",
         "href": "resource/noobaa.io~v1alpha1~BucketClass"
       },
       "component": {
@@ -70,7 +70,7 @@
         "version": "v1"
       },
       "page": {
-        "name": "Data sources",
+        "name": "Data source",
         "href": "resource/noobaa.io~v1alpha1~NamespaceStore"
       },
       "component": {

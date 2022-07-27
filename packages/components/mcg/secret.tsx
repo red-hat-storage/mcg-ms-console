@@ -83,7 +83,7 @@ export const GetSecret: React.FC<GetSecretProps> = ({ obj }) => {
 
   return dl.length ? (
     <div className="co-m-pane__body">
-      <SectionHeading text={t('Object Bucket Claim Data')}>
+      <SectionHeading text={t('Object bucket claim data')}>
         {secretValues.length ? (
           <Button
             type="button"

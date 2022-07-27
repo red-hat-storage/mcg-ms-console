@@ -128,6 +128,7 @@ export const BucketPolicyBody: React.FC<BucketPolicyBodyProps> = ({
             })
           }
           type="text"
+          placeholder="my-bucket-policy"
           id="bucket-name"
           name="bucket-name"
           data-test="bucket-name-text"
@@ -145,7 +146,7 @@ export const BucketPolicyBody: React.FC<BucketPolicyBodyProps> = ({
             name="data-source-type"
             id="single-data-source"
             description={t(
-              'The bucket will read and write its data to a selected data source'
+              'The bucket reads and writes data to a single data source.'
             )}
             onClick={() =>
               dispatch({
@@ -175,7 +176,7 @@ export const BucketPolicyBody: React.FC<BucketPolicyBodyProps> = ({
           name="data-source-type"
           id="multi-data-source"
           description={t(
-            'The bucket will serve reads from several selected data sources, creating a virtual namespace on top of them and will write to one or more of those as its chosen write target'
+            'The bucket reads from several selected data sources, creating a virtual namespace on top of them, and writes into one of those.'
           )}
           onClick={() =>
             dispatch({
@@ -202,9 +203,7 @@ export const BucketPolicyBody: React.FC<BucketPolicyBodyProps> = ({
       </FormGroup>
       <FormGroup fieldId="namespace-name" label={t('Namespace')} isRequired>
         <p className="pf-c-form__helper-text">
-          {t(
-            'To allow access to this bucket, an ObjectBucketClaim will be created in the below specified namespace in the cluster. Select the namespace in which it will be created'
-          )}
+          {t('Creates object bucket claim in the specified namespace.')}
         </p>
         <ResourceDropdown
           id="namespace-name"
@@ -219,9 +218,7 @@ export const BucketPolicyBody: React.FC<BucketPolicyBodyProps> = ({
       </FormGroup>
       <FormGroup fieldId="replication" label={t('Replication')}>
         <p className="pf-c-form__helper-text">
-          {t(
-            'If you want to replicate data from this bucket to other buckets, select the buckets where you want the data replicated to'
-          )}
+          {t('Optionally, select the bucket you want to replicate data to.')}
         </p>
         <GenericDropdown
           id="replication"

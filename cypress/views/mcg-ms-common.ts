@@ -10,12 +10,12 @@ export const MCGMSCommon = {
   },
   visitBucketPolicyList: () => {
     cy.clickNavLink([DATA_SERVICES, DATA_FEDERATION]);
-    cy.byLegacyTestID('horizontal-link-Buckets').click();
+    cy.byLegacyTestID('horizontal-link-Bucket policy').click();
   },
   visitDataSourceListPage: () => {
     MCGMSCommon.visitMcgMsDashboard();
     cy.log('selecting data source from the horizontal navigation bar');
-    cy.byLegacyTestID('horizontal-link-Data sources').first().click();
+    cy.byLegacyTestID('horizontal-link-Data source').first().click();
     cy.location('pathname').should(
       'eq',
       '/mcgms/cluster/resource/noobaa.io~v1alpha1~NamespaceStore'

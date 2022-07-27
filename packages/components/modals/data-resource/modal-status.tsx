@@ -19,28 +19,23 @@ import { NamespaceStoreKind } from '../../../types';
 import { LoadingComponent } from '../../../utils/generics/Loading';
 import { useCustomTranslation } from '../../../utils/hooks/useCustomTranslationHook';
 
-const STATUS_BODY = (t: TFunction, name: string) => ({
+const STATUS_BODY = (t: TFunction) => ({
   [NS_PROGRESS.CREATING]: {
     icon: LoadingComponent,
-    desc: t('plugin__mcg-ms-console~Connecting to {{bucketName}}', {
-      bucketName: name,
-    }),
+    desc: t('plugin__mcg-ms-console~Connecting to the bucket'),
     className: '',
   },
   [NS_PROGRESS.READY]: {
     icon: CheckCircleIcon,
     desc: t(
-      'plugin__mcg-ms-console~The selected data source was successfully added and is ready to be used'
+      'plugin__mcg-ms-console~The data source has been successfully added.'
     ),
     className: 'data-resource-modal__check-icon',
   },
   [NS_PROGRESS.REJECTED]: {
     icon: ExclamationCircleIcon,
     desc: t(
-      'plugin__mcg-ms-console~We could not connect to {{bucketName}}. You can try again or connect to existing data sources',
-      {
-        bucketName: name,
-      }
+      'plugin__mcg-ms-console~Could not connect to the bucket. Verify the data source configuration, and try again.'
     ),
     className: 'data-resource-modal__error-icon',
   },
@@ -100,7 +95,7 @@ const STATUS_FOOTER: STATUSFOOTER = (t, onCancel, onTryAgain) => ({
 const DataResourceStatus: React.FC<DataResourceStatusProps> = React.memo(
   ({ name, status, onCancel, onTryAgain, data, error }) => {
     const { t } = useCustomTranslation();
-    const statusObj = STATUS_BODY(t, name)[status];
+    const statusObj = STATUS_BODY(t)[status];
     const errorMessage =
       data?.status?.conditions?.[0]?.message || error?.message;
     return (

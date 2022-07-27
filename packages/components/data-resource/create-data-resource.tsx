@@ -28,11 +28,7 @@ const CreateDataResource: React.FC<CreateDataResourceProps> = ({
       path: '/mcgms/cluster',
     },
     {
-      name: t('Data source'),
-      path: '/mcgms/cluster/resource/noobaa.io~v1alpha1~NamespaceStore',
-    },
-    {
-      name: t('Create new data source'),
+      name: t('Create data source'),
       path: '',
     },
   ];

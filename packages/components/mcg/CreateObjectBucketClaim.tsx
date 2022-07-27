@@ -106,7 +106,7 @@ export const CreateOBCForm: React.FC<CreateOBCFormProps> = (props) => {
     <div>
       <div className="form-group">
         <label className="control-label" htmlFor="obc-name">
-          {t('ObjectBucketClaim Name')}
+          {t('Object bucket claim name')}
         </label>
         <div className="form-group">
           <input
@@ -116,7 +116,7 @@ export const CreateOBCForm: React.FC<CreateOBCFormProps> = (props) => {
               dispatch({ type: 'setName', name: e.currentTarget.value.trim() })
             }
             value={state.name}
-            placeholder={t('my-object-bucket')}
+            placeholder={t('my-object-bucket-claim')}
             aria-describedby="obc-name-help"
             id="obc-name"
             data-test="obc-name"
@@ -129,7 +129,7 @@ export const CreateOBCForm: React.FC<CreateOBCFormProps> = (props) => {
         </div>
         <div className="form-group">
           <label className="control-label" htmlFor="sc-dropdown">
-            {t('StorageClass')}
+            {t('Storage class')}
           </label>
           <div className="form-group">
             <ResourceDropdown<StorageClassResourceKind>
@@ -151,7 +151,7 @@ export const CreateOBCForm: React.FC<CreateOBCFormProps> = (props) => {
         {isNoobaa && (
           <div className="form-group">
             <label className="control-label co-required" htmlFor="obc-name">
-              {t('Bucket Policy')}
+              {t('Bucket policy')}
             </label>
             <div className="form-group">
               <ResourceDropdown<K8sResourceKind>
@@ -207,10 +207,10 @@ export const CreateOBCPage: React.FC<CreateOBCPageProps> = (props) => {
   return (
     <div className="co-m-pane__body co-m-pane__form">
       <Helmet>
-        <title>{t('Create ObjectBucketClaim')}</title>
+        <title>{t('Create new object bucket claim')}</title>
       </Helmet>
       <h1 className="co-m-pane__heading co-m-pane__heading--baseline">
-        <div className="co-m-pane__name">{t('Create ObjectBucketClaim')}</div>
+        <div className="co-m-pane__name">{t('Create object bucket claim')}</div>
       </h1>
       <form className="co-m-pane__body-group" onSubmit={save}>
         <CreateOBCForm

@@ -334,6 +334,7 @@ export const S3EndPointType: React.FC<S3EndpointTypeProps> = (props) => {
           id="target-bucket"
           value={state.target}
           data-test={`${type.toLowerCase()}-target-bucket`}
+          placeholder="Name of the target bucket"
           onChange={(e) =>
             dispatch({ type: createFormAction.SET_TARGET, value: e })
           }
