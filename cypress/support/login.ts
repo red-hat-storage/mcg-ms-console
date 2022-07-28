@@ -2,6 +2,7 @@ import {
   KUBEADMIN_IDP,
   KUBEADMIN_USERNAME,
   BRIDGE_PASSWORD,
+  SECOND,
 } from '../constants/common';
 import { submitButton, masthead } from './views';
 
@@ -36,6 +37,13 @@ Cypress.Commands.add(
 
       const idp = provider || KUBEADMIN_IDP;
       cy.task('log', ` Logging in as ${username || KUBEADMIN_USERNAME}`);
+      if (Cypress.env('ADDON_IDS')) {
+        // There are no data-* attributes on the HTPasswd button.
+        // eslint-disable-next-line cypress/require-data-selectors
+        cy.get('a', { timeout: 30 * SECOND })
+          .contains('HTPasswd')
+          .click();
+      }
       cy.byLegacyTestID('login').should('be.visible');
       /* eslint-disable cypress/require-data-selectors */
       cy.get('body').then(($body) => {
