@@ -12,10 +12,10 @@ NAMESPACE="redhat-data-federation"
 GENERATED="cypress-gen"
 
 function postTests {
-  generateLogsAndCopyArtifacts
-
   # Run the post-tests hook.
   yarn run e2e:ci-post
+  
+  generateLogsAndCopyArtifacts
 }
 
 function generateLogsAndCopyArtifacts {
@@ -29,6 +29,7 @@ function generateLogsAndCopyArtifacts {
   oc get serviceaccounts -n "$NAMESPACE" -o yaml >>"${ARTIFACTS_DIRECTORY}"/serviceaccount.yaml
   oc get services -n "$NAMESPACE" -o yaml >>"${ARTIFACTS_DIRECTORY}"/services.yaml
   oc get subscriptions -n "$NAMESPACE" -o yaml >>"${ARTIFACTS_DIRECTORY}"/subscriptions.yaml
+  mkdir -p "$GENERATED" "$ARTIFACTS_DIRECTORY/$GENERATED"
   cp -r "$GENERATED" "$ARTIFACTS_DIRECTORY/$GENERATED"
 }
 
