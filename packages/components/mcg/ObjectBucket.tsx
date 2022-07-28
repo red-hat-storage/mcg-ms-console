@@ -182,7 +182,7 @@ export const ObjectBucketListPage: React.FC<PageProps> = (props) => {
   return (
     <>
       <Modal {...modalProps} />
-      <ListPageHeader title={t('ObjectBuckets')} />
+      <ListPageHeader title={t('Object buckets')} />
       <ListPageBody>
         <ListPageFilter
           data={data}
@@ -223,7 +223,7 @@ const OBDetails: DetailsType =
       <>
         <div className="co-m-pane__body">
           <SectionHeading
-            text={t('plugin__mcg-ms-console~Object Bucket Details')}
+            text={t('plugin__mcg-ms-console~Object bucket details')}
           />
           <div className="row">
             <div className="col-sm-6">
@@ -239,7 +239,7 @@ const OBDetails: DetailsType =
                 <dd>
                   <OBStatus ob={obj} />
                 </dd>
-                <dt>{t('plugin__mcg-ms-console~StorageClass')}</dt>
+                <dt>{t('plugin__mcg-ms-console~Storage class')}</dt>
                 <dd>
                   {storageClassName ? (
                     <ResourceLink kind="StorageClass" name={storageClassName} />
@@ -247,7 +247,7 @@ const OBDetails: DetailsType =
                     '-'
                   )}
                 </dd>
-                <dt>{t('plugin__mcg-ms-console~Object Bucket Claim')}</dt>
+                <dt>{t('plugin__mcg-ms-console~Object bucket claim')}</dt>
                 <dd>
                   <ResourceLink
                     kind={referenceForModel(NooBaaObjectBucketClaimModel)}
@@ -278,11 +278,11 @@ export const OBDetailsPage: React.FC<PageProps> = (props) => {
 
   const breadcrumbs = [
     {
-      name: t('ObjectBuckets'),
+      name: t('Object buckets'),
       path: `/k8s/cluster/${kind}`,
     },
     {
-      name: t('ObjectBucket details'),
+      name: t('Object bucket details'),
       path: '',
     },
   ];
@@ -296,6 +296,11 @@ export const OBDetailsPage: React.FC<PageProps> = (props) => {
           resource,
           resourceModel: NooBaaObjectBucketModel,
         }}
+        customKebabItems={(t) => ({
+          Delete: {
+            value: t('Delete object bucket'),
+          },
+        })}
       />
     );
   }, [launchModal, resource]);

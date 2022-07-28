@@ -13,6 +13,7 @@ import {
   BucketClassType,
   SINGLE_WITH_CACHE,
   DATA_RESOURCE_DETAILS_PATH,
+  OBJECT_BUCKET_CLAIMS,
 } from '../../constants';
 import { NooBaaBucketClassModel } from '../../models';
 import { K8sResourceKind, BucketClassKind } from '../../types';
@@ -86,7 +87,9 @@ export const RowRenderer: React.FC<RowProps<BucketClassKind, CustomData>> = ({
         <OperandStatus operand={obj} />
       </TableData>
       <TableData {...tableColumnInfo[2]} activeColumnIDs={activeColumnIDs}>
-        {bucketPolicyType || DASH}
+        {bucketPolicyType
+          ? t('{{bucketPolicyType}} data source', { bucketPolicyType })
+          : DASH}
       </TableData>
       <TableData {...tableColumnInfo[3]} activeColumnIDs={activeColumnIDs}>
         {!!dataResourceCount ? (
@@ -149,21 +152,23 @@ export const useBucketPolicyList = () => {
         id: tableColumnInfo[1].id,
       },
       {
-        title: t('Policy type'),
+        title: t('Data source type'),
         props: {
           className: tableColumnInfo[2].className,
         },
         id: tableColumnInfo[2].id,
       },
       {
-        title: t('Data source'),
+        title: t('Connected data sources'),
         props: {
           className: tableColumnInfo[3].className,
         },
         id: tableColumnInfo[3].id,
       },
       {
-        title: t('ObjectBucketClaims'),
+        title: t('{{obcDisplayText}}', {
+          obcDisplayText: OBJECT_BUCKET_CLAIMS,
+        }),
         props: {
           className: tableColumnInfo[4].className,
         },
@@ -211,10 +216,10 @@ export const BucketPolicyListView: React.FC = () => {
       resourceModel={NooBaaBucketClassModel}
       resourceMap={objectBucketClaimMap}
       tableColumns={tableColumns as TableColumn<K8sResourceCommon>[]}
-      createButtonTitle={t('Create bucket')}
+      createButtonTitle={t('Create new')}
       kebabActions={(t) => ({
         Delete: {
-          value: t('Delete bucket'),
+          value: t('Delete bucket policy'),
         },
       })}
     >

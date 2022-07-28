@@ -84,7 +84,7 @@ const NamespaceStoreModal: React.FC<NamespaceStoreModalProps> = (props) => {
         <ModalBody>
           <p>
             {t(
-              'Represents an underlying storage to be used as read or write target for the bucket policy'
+              'Represents an underlying storage to be used as read or write target for the bucket policy.'
             )}
           </p>
           {!!status ? (

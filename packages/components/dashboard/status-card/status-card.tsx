@@ -9,7 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@patternfly/react-core';
-import { MCG_MS_PROMETHEUS_URL, PrometheusEndpoint } from '../../../constants';
+import {
+  DATA_FEDERATION,
+  MCG_MS_PROMETHEUS_URL,
+  PrometheusEndpoint,
+} from '../../../constants';
 import HealthItem from '../../../utils/dashboard/status-card/HealthItem';
 import { useCustomPrometheusPoll } from '../../../utils/hooks/custom-prometheus-poll';
 import { useCustomTranslation } from '../../../utils/hooks/useCustomTranslationHook';
@@ -41,7 +45,9 @@ export const StatusCard: React.FC = () => {
           <Gallery className="co-overview-status__health" hasGutter>
             <GalleryItem>
               <HealthItem
-                title={t('Data Federation service')}
+                title={t(`{{operatorName}} service`, {
+                  operatorName: DATA_FEDERATION,
+                })}
                 state={operatorHealthStatus.state}
               />
             </GalleryItem>

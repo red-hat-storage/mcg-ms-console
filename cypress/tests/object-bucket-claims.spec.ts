@@ -1,4 +1,5 @@
 import { BUCKET_CLAIM_NAME } from '../constants/tests';
+import { app } from '../views/common';
 
 describe('Object Bucket Claims page', () => {
   before(() => {
@@ -7,6 +8,7 @@ describe('Object Bucket Claims page', () => {
 
   beforeEach(() => {
     cy.clickNavLink(['Storage', 'Object Bucket Claims']);
+    app.waitForLoad();
   });
 
   after(() => {

@@ -21,6 +21,7 @@ import {
   NamespaceStorePhaseMap,
   OBC_LIST_PATH,
   ObjectBucketClaimPhaseMap,
+  OBJECT_BUCKET_CLAIMS,
   PhaseType,
 } from '../../../constants';
 import {
@@ -268,7 +269,9 @@ export const InventoryCard: React.FC = () => {
               listLoaded={obcLoaded}
               listError={obcError}
               redirectPath={OBC_LIST_PATH}
-              resourceType={t('ObjectBucketClaims')}
+              resourceType={t(`{{obcDisplayText}}`, {
+                obcDisplayText: OBJECT_BUCKET_CLAIMS,
+              })}
               statusMap={obcStatusMap}
             >
               <OBCPopOver
@@ -276,7 +279,9 @@ export const InventoryCard: React.FC = () => {
                 obcDetails={obcStatusMap[PhaseType.ERROR] as obcType[]}
                 headerContent={getHeaderHTMLElement(
                   PhaseType.ERROR,
-                  t('ObjectBucketClaims: Error')
+                  t(`{{obcDisplayText}}: Error`, {
+                    obcDisplayText: OBJECT_BUCKET_CLAIMS,
+                  })
                 )}
                 trimContent
               />
@@ -285,7 +290,9 @@ export const InventoryCard: React.FC = () => {
                 obcDetails={obcStatusMap[PhaseType.PROCESSING] as obcType[]}
                 headerContent={getHeaderHTMLElement(
                   PhaseType.PROCESSING,
-                  t('ObjectBucketClaims: Processing')
+                  t(`{{obcDisplayText}}: Processing`, {
+                    obcDisplayText: OBJECT_BUCKET_CLAIMS,
+                  })
                 )}
                 trimContent
               />

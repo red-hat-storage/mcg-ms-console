@@ -73,14 +73,14 @@ describe('Bucket policy page', () => {
       cy.log('Verify only 1 data source is connected');
       cy.byTestID('mcg-resource-popover')
         .should('be.visible')
-        .should('contain', '1 data source');
+        .should('contain', '1 resources');
       cy.log('Verify name of the connected data source');
       cy.byTestID('mcg-resource-popover').should('be.visible').click();
       cy.contains(DATA_SOURCE_NAME_NSFS);
       cy.log('Verify if OBC is created or not');
       cy.byTestID('obc-resource-popover')
         .should('be.visible')
-        .should('contain', '1 ObjectBucketClaim');
+        .should('contain', '1 Object bucket claims');
     });
   });
 

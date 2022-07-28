@@ -140,7 +140,7 @@ export const SingleDataResource: React.FC<DataResourceProps> = ({
         }
         isChecked={state.cacheEnabled}
         description={t(
-          'The caching bucket will serve data from a large raw data out of a local caching tiering'
+          'A caching bucket serves data from the local storage tier to improve performance.'
         )}
       />
     </FormGroup>
@@ -183,7 +183,7 @@ export const MultiDataResource: React.FC<DataResourceProps> = ({
       >
         <p className="pf-c-form__helper-text">
           {t(
-            'Select a single data source that defines the write targets of the bucket policy'
+            'Select a single data source that defines the write target of the bucket policy'
           )}
         </p>
         <DataResourceDropdown
