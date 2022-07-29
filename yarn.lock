@@ -1251,6 +1251,11 @@
     tunnel-agent "^0.6.0"
     uuid "^8.3.2"
 
+"@cypress/skip-test@2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@cypress/skip-test/-/skip-test-2.6.1.tgz#44a4bc4c2b2e369a7661177c9b38e50d417a36ea"
+  integrity sha512-X+ibefBiuOmC5gKG91wRIT0/OqXeETYvu7zXktjZ3yLeO186Y8ia0K7/gQUpAwuUi28DuqMd1+7tBQVtPkzbPA==
+
 "@cypress/webpack-preprocessor@5.12.0":
   version "5.12.0"
   resolved "https://registry.yarnpkg.com/@cypress/webpack-preprocessor/-/webpack-preprocessor-5.12.0.tgz#231f6c86423237e17eaf12ce6193d4b67290b852"

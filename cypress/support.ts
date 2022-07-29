@@ -1,4 +1,5 @@
 /* eslint-disable cypress/require-data-selectors */
+import '@cypress/skip-test/support';
 import './support/login';
 import './support/selectors';
 /* import all support files above */

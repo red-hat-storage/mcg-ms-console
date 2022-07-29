@@ -27,3 +27,8 @@ export const DATA_SOURCE_INPUTS = {
   secretKey: Cypress.env('AWS_SECRET_ACCESS_KEY'),
   targetBucket: Cypress.env('AWS_SINGLE_DATA_SOURCE_BUCKET'),
 };
+
+// Helper constants.
+export const AWS_CREDS_EXIST: boolean = !!(
+  Cypress.env('AWS_ACCESS_KEY_ID') && Cypress.env('AWS_SECRET_ACCESS_KEY')
+);

@@ -1,5 +1,6 @@
 import { DATA_FEDERATION_NAMESPACE, MINUTE } from '../constants/common';
 import {
+  AWS_CREDS_EXIST,
   DATA_SOURCE_INPUTS,
   Providers,
   TEST_DATA_SOURCE,
@@ -37,6 +38,7 @@ describe('data source creation', () => {
   });
 
   it('creates a data source having AWS as the provider', () => {
+    cy.onlyOn(AWS_CREDS_EXIST);
     createDataSource(Providers.AWS, TEST_DATA_SOURCE);
     checkDataSourceCreation(TEST_DATA_SOURCE, DATA_FEDERATION_NAMESPACE);
     cy.byTestID(`status-text`).should('contain', 'Ready');
